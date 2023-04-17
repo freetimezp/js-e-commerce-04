@@ -7,6 +7,14 @@
         align-items: center;
         justify-content: space-between;
 
+        .center {
+            .logo {
+                font-weight: bold;
+                font-style: italic;
+                letter-spacing: -0.2rem;
+            }
+        }
+
         .item {
             display: flex;
             align-items: center;
