@@ -49,6 +49,8 @@
     }
 
     .row-hover {
+        transition: all 0.6s ease;
+
         &::after {
             content: '';
             position: absolute;
@@ -59,8 +61,9 @@
                     rgba(241, 246, 9, 0.5466561624649859) 100%, rgba(0, 0, 0, 1) 100%);
             top: 0;
             left: 0;
-            transform: translateX(-100%);
+            transform: scale(0);
             z-index: 2;
+            transition: all 0.6s ease;
         }
 
         &:hover {
@@ -72,7 +75,7 @@
         }
 
         &:hover::after {
-            transform: translateX(0);
+            transform: scale(1);
         }
     }
 }
