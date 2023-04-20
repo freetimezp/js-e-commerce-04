@@ -1,47 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 import Card from '../Card/Card';
 
 import './FeaturedProducts.scss';
 
-const data = [
-    {
-        id: 1,
-        img: '/img/featured-1.jpg',
-        img2: '/img/featured-4.jpg',
-        title: 'Hat',
-        isNew: true,
-        oldPrice: 19,
-        price: 12,
-    },
-    {
-        id: 2,
-        img: '/img/featured-2.jpg',
-        img2: '/img/featured-3.jpg',
-        title: 'Hat',
-        isNew: true,
-        oldPrice: 19,
-        price: 12,
-    },
-    {
-        id: 3,
-        img: '/img/featured-3.jpg',
-        img2: '/img/featured-1.jpg',
-        title: 'Hat',
-        oldPrice: 19,
-        price: 12,
-    },
-    {
-        id: 4,
-        img: '/img/featured-4.jpg',
-        img2: '/img/featured-2.jpg',
-        title: 'Hat',
-        oldPrice: 19,
-        price: 12,
-    },
-];
-
 const FeaturedProducts = ({ type }) => {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await axios.get(process.env.REACT_APP_API_URL + "/products?populate=*", {
+                    headers: {
+                        Authorization: "bearer " + process.env.REACT_APP_API_TOKEN,
+                    },
+                });
+                //console.log(data);
+                setData(res.data.data);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        fetchData();
+    }, []);
+
     return (
         <div className='featured-products'>
             <div className="top">
