@@ -34,6 +34,9 @@
   flex-direction: column;
   gap: 10px;
 }
+.product .right h1 {
+  text-transform: capitalize;
+}
 .product .right .price {
   font-size: 30px;
   color: #2879fe;
