@@ -36,6 +36,8 @@
   color: gray;
   margin-bottom: 10px;
   font-size: 14px;
+  text-align: justify;
+  max-width: 200px;
 }
 .cart .item .details .price {
   color: #2879fe;
